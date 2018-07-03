@@ -2,8 +2,8 @@ import ply.lex as lex
 
 #Nombre de lista de Token
 
-tokens = ('QUOTE', 'SIMB', 'NUM', 'NAME','LPAREN', 'RPAREN', \
-          'NIL', 'TRUE', 'FALSE', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE')
+tokens = ('QUOTE', 'SIMB', 'NUM', 'NAME','LPAREN', 'RPAREN',
+          'NIL', 'TRUE', 'FALSE', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE', 'TIMES')
 
 #PALABRAS RESERVADAS
 reserved = {'nil' : 'NIL'}
@@ -11,7 +11,7 @@ reserved = {'nil' : 'NIL'}
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE TOKENS
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
-t_QUOTE = r'\''
+t_QUOTE = r'\'' #apostrofe
 t_TRUE = r'\#t'
 t_FALSE = r'\#f'
 t_MINUS = r'-'
@@ -26,7 +26,7 @@ def t_NUM(t):
     try:
         t.value = int(t.value)
     except ValueError:
-        print "Line %d: Numero % es largo!" % (t.lineno, t .value)
+        print ("Line %d: Numero % es largo!" % (t.lineno, t .value))
         t.value = 0
         return t
 
@@ -35,7 +35,7 @@ def t_SIMB(t):
     t.type = reserved.get(t.value, 'SIMB') # CHEQUEA PALABRAS RESERVADAS
     return t
 
-def t_TEXT(t)
+def t_TEXT(t):
     r'\'[a-zA-Z0-9_+\*\- :,]*\''
     t.type = reserved.get(t.value, 'TEXT') #CHEQUEA LAS PALBRAS RESERVADAS
     return t
@@ -50,5 +50,9 @@ def t_error(t):
 
 lex.lex()
 
-if _name_ == '_main_':
-    lex.runmain()
+
+# MAIN
+if __name__ == "__main__":
+    print("Ingrese una palabra reservada , un operador o una variable de LISP : ")
+    cadena=input()
+    lex.input(cadena)
