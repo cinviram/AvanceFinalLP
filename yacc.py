@@ -86,4 +86,15 @@ def p_lista(p):
     pass
 
 
-yacc.yacc()
+parser = yacc.yacc()
+print("Ingrese Exit para terminar")
+while True:
+    try:
+        s = input("Ingrese: ")
+        if s == 'Exit':
+            break
+    except EOFError:
+            break
+
+    if not s: continue
+    resultado = parser.parse(s)
