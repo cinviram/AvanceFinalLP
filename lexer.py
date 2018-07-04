@@ -6,7 +6,7 @@ import ply.lex as lex
 tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
           'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
-          'LISTP', 'SPACE')
+          'SPACE')
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
