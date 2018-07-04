@@ -44,6 +44,11 @@ def p_divide(p):
     '''first : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN
     '''
 
+#Funcion RESTA : Divide los elementos de una lista
+def p_minus(p):
+    '''first : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
+    '''
+
 
 #Funcion MAX: Devuelve el valor máximo de una lista
 def p_max(p):
