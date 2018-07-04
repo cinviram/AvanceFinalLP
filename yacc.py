@@ -1,18 +1,24 @@
 import ply.yacc as yacc
-import lexer
-tokens = lexer.tokens
+import lexer  # Import lexer information
 
-name = {}
+tokens = lexer.tokens  #
 
-#def cons(1):
- #   return [1[0]] + 1[1]
-#name['cons'] = cons
 
-#def concat(1):
- #   return 1[0] + 1[1]
-#name['concat'] = concat()
+def p_error(p):
+    print("Lexical: illegal character '%s' in line '%d' position" % (p.value[0], p.lineno))
+    p.yacc.skip(1)
 
-#def listar(1):
- #   return 1
-#name['list'] = listar
 
+def p_apply(p):
+    '''
+
+
+    '''
+
+
+def p_lista(p):
+    '''lista : LPAREN RPAREN 
+             | LPAREN ATOMO RPAREN
+             | LPAREN ATOMO SPACE ATOMO RPAREN
+             | LPAREN ATOMO SPACE ATOMO RPAREN
+             | LPAREN ATOMO SPACE LPAREN ATOMO SPACE ATOMO RPAREN ATOMO RPAREN '''

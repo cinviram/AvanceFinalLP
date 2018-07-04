@@ -2,8 +2,11 @@ import ply.lex as lex
 
 #Nombre de lista de Token
 
-tokens = ('QUOTE', 'SIMB', 'NUM', 'NAME','LPAREN', 'RPAREN',
-          'NIL', 'TRUE', 'FALSE', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE', 'TIMES')
+#revisar cuales no usamos al final
+tokens = ('QUOTE', 'SIMB', 'NUM', 'ATOMO','LPAREN', 'RPAREN',
+          'NIL', 'TRUE', 'FALSE', 'TEXT', 'PLUS', 'REM', 'DIVIDE',
+          'TIMES', 'SQRT','APPEND','CONS', 'FIRST', 'REST', 'LISTP',
+          'SPACE')
 
 #PALABRAS RESERVADAS
 reserved = {'nil' : 'NIL'}
@@ -14,11 +17,13 @@ t_RPAREN = r'\)'
 t_QUOTE = r'\'' #apostrofe
 t_TRUE = r'\#t'
 t_FALSE = r'\#f'
-t_MINUS = r'-'
+t_REM = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_PLUS = r'\+'
-t_NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
+t_ATOMO = r'[a-zA-Z_][a-zA-Z0-9_]*'
+t_SPACE = r'\n'
+
 
 
 def t_NUM(t):
