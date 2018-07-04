@@ -6,7 +6,7 @@ import ply.lex as lex
 tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
           'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
-          'SPACE')
+          'SPACE', 'APPLY')
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
@@ -32,6 +32,14 @@ t_ALFNUM = r'[\w]+'
 t_STRING = r'[a-zA-Z]'
 t_NUM = r' [+-]?\d+(\.\d+|[eE][+-]?\d+)?'
 
+#palabras reservadas
+t_MAX = r'MAX'
+t_MIN = r'MIN'
+t_CONS = r'CONS'
+t_APPEND = r'APPEND'
+t_FIRST = r'FIRST'
+t_REST = r'REST'
+t_APPLY = r'APPLY'
 
 
 #IGNORANDO CARACTERES ESPACIOS Y TABS
