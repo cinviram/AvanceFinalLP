@@ -3,10 +3,10 @@ import ply.lex as lex
 #Nombre de lista de Token
 
 #revisar cuales no usamos al final
-tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
-          , 'PLUS', 'MINUS', 'DIVIDE',
+tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
+          'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
-          'SPACE', 'APPLY', 'TRUE')
+          'SPACE', 'APPLY')
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
@@ -38,11 +38,9 @@ t_APPEND = r'APPEND'
 t_FIRST = r'FIRST'
 t_REST = r'REST'
 t_APPLY = r'APPLY'
-t_TRUE = r'TRUE'
 
 
 #IGNORANDO CARACTERES ESPACIOS Y TABS
-t_ignore = '\t'
 
 #ERROR
 def t_error(t):
