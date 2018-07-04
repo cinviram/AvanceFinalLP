@@ -1,0 +1,101 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> atomo
+Rule 1     atomo -> STRING
+Rule 2     atomo -> NUM
+Rule 3     atomo -> ALFNUM
+Rule 4     first -> LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN
+Rule 5     rest -> LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN
+Rule 6     cons -> LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN
+Rule 7     plus -> LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN
+Rule 8     times -> LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN
+Rule 9     divide -> LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN
+Rule 10    minus -> LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
+Rule 11    max -> LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN
+Rule 12    min -> LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
+Rule 13    append -> LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN
+Rule 14    lista -> LPAREN RPAREN
+Rule 15    lista -> LPAREN atomo RPAREN
+Rule 16    lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN
+Rule 17    lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN
+
+Terminals, with rules where they appear
+
+ALFNUM               : 3
+APPEND               : 13
+APPLY                : 4 5 6 7 8 9 10 11 12 13
+CONS                 : 6
+DIVIDE               : 9
+FIRST                : 4
+LPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17
+MAX                  : 11
+MIN                  : 12
+MINUS                : 10
+NUM                  : 2
+PLUS                 : 7
+QUOTE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13
+REST                 : 5
+RPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17
+SPACE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 13 13 13 16 16 17 17 17
+STRING               : 1
+TIMES                : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+append               : 
+atomo                : 15 16 16 17 17 17 0
+cons                 : 
+divide               : 
+first                : 
+lista                : 4 5 6 7 8 9 10 11 12 13 13 16 17
+max                  : 
+min                  : 
+minus                : 
+plus                 : 
+rest                 : 
+times                : 
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . atomo
+    (1) atomo -> . STRING
+    (2) atomo -> . NUM
+    (3) atomo -> . ALFNUM
+
+    STRING          shift and go to state 2
+    NUM             shift and go to state 3
+    ALFNUM          shift and go to state 4
+
+    atomo                          shift and go to state 1
+
+state 1
+
+    (0) S' -> atomo .
+
+
+
+state 2
+
+    (1) atomo -> STRING .
+
+    $end            reduce using rule 1 (atomo -> STRING .)
+
+
+state 3
+
+    (2) atomo -> NUM .
+
+    $end            reduce using rule 2 (atomo -> NUM .)
+
+
+state 4
+
+    (3) atomo -> ALFNUM .
+
+    $end            reduce using rule 3 (atomo -> ALFNUM .)
+

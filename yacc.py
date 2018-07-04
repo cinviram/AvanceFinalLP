@@ -44,7 +44,7 @@ def p_divide(p):
     '''divide : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN
     '''
 
-#Funcion RESTA : Divide los elementos de una lista
+#Funcion RESTA : Resta los elementos de una lista
 def p_minus(p):
     '''minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
     '''
@@ -60,8 +60,9 @@ def p_min(p):
     '''min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
     '''
 
+#Funcion APPEND: Concatena dos listas
 def p_append(p):
-    '''min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
+    '''append : LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN
     '''
     
 def p_lista(p):
@@ -69,3 +70,6 @@ def p_lista(p):
              | LPAREN atomo RPAREN
              | LPAREN atomo SPACE atomo SPACE lista RPAREN
              | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '''
+
+
+yacc.yacc()

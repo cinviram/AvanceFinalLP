@@ -3,8 +3,8 @@ import ply.lex as lex
 #Nombre de lista de Token
 
 #revisar cuales no usamos al final
-tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
-          'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE',
+tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
+          , 'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
           'SPACE', 'APPLY')
 
@@ -17,9 +17,7 @@ t_RPAREN = r'\)'
 t_QUOTE = r'\'' #apostrofe
 t_SPACE = r'\n'
 
-#valores de verdad
-t_T = r'\#t'
-t_NIL = r'\#f'
+
 
 #operadores
 t_MINUS = r'-'
