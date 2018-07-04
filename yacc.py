@@ -9,16 +9,23 @@ def p_error(p):
     p.yacc.skip(1)
 
 
+def p_atomo(p):
+    '''atomo : STRING
+             | NUM
+             | ALFNUM
+    '''
+
+
+
+
 def p_apply(p):
     '''
 
 
     '''
 
-
 def p_lista(p):
     '''lista : LPAREN RPAREN 
-             | LPAREN ATOMO RPAREN
-             | LPAREN ATOMO SPACE ATOMO RPAREN
-             | LPAREN ATOMO SPACE ATOMO RPAREN
-             | LPAREN ATOMO SPACE LPAREN ATOMO SPACE ATOMO RPAREN ATOMO RPAREN '''
+             | LPAREN atomo RPAREN
+             | LPAREN atomo SPACE atomo SPACE lista RPAREN
+             | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '''

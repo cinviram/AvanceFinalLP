@@ -3,47 +3,36 @@ import ply.lex as lex
 #Nombre de lista de Token
 
 #revisar cuales no usamos al final
-tokens = ('QUOTE', 'SIMB', 'NUM', 'ATOMO','LPAREN', 'RPAREN',
-          'NIL', 'TRUE', 'FALSE', 'TEXT', 'PLUS', 'REM', 'DIVIDE',
+tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
+          'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'REM', 'DIVIDE',
           'TIMES', 'SQRT','APPEND','CONS', 'FIRST', 'REST', 'LISTP',
           'SPACE')
 
-#PALABRAS RESERVADAS
-reserved = {'nil' : 'NIL'}
 
-#EXPRESIONES REGULARES REGLAS PARA SIMPLE TOKENS
+#EXPRESIONES REGULARES REGLAS PARA SIMPLE
+
+#simbolos
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_QUOTE = r'\'' #apostrofe
-t_TRUE = r'\#t'
-t_FALSE = r'\#f'
+t_SPACE = r'\n'
+
+#valores de verdad
+t_T = r'\#t'
+t_NIL = r'\#f'
+
+#operadores
 t_REM = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_PLUS = r'\+'
-t_ATOMO = r'[a-zA-Z_][a-zA-Z0-9_]*'
-t_SPACE = r'\n'
+
+#tipos atomo
+t_ALFNUM = r'[\w]+'
+t_STRING = r'[a-zA-Z]'
+t_NUM = r' [+-]?\d+(\.\d+|[eE][+-]?\d+)?'
 
 
-
-def t_NUM(t):
-    r'\d+'
-    try:
-        t.value = int(t.value)
-    except ValueError:
-        print ("Line %d: Numero % es largo!" % (t.lineno, t .value))
-        t.value = 0
-        return t
-
-def t_SIMB(t):
-    r'[a-zA-Z_+=\*\-][a-zA-Z0-9_+\*\-]*'
-    t.type = reserved.get(t.value, 'SIMB') # CHEQUEA PALABRAS RESERVADAS
-    return t
-
-def t_TEXT(t):
-    r'\'[a-zA-Z0-9_+\*\- :,]*\''
-    t.type = reserved.get(t.value, 'TEXT') #CHEQUEA LAS PALBRAS RESERVADAS
-    return t
 
 #IGNORANDO CARACTERES ESPACIOS Y TABS
 t_ignore = '\t'
@@ -61,3 +50,11 @@ if __name__ == "__main__":
     print("Ingrese una palabra reservada , un operador o una variable de LISP : ")
     cadena=input()
     lex.input(cadena)
+
+    while 1:
+        token = lex.token()
+        if not token:
+            print("¡No es un token válido!")
+            break
+        print("Token valido de tipo : " + token.type)
+        break
