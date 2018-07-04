@@ -31,22 +31,22 @@ def p_cons(p):
 
 #Funcion PLUS : Suma los elementos de una lista
 def p_plus(p):
-    '''first : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN
+    '''plus : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN
     '''
 
 #Funcion TIMES : Multiplica los elementos de una lista
 def p_times(p):
-    '''first : LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN
+    '''times : LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN
     '''
 
 #Funcion DIVIDE : Divide los elementos de una lista
 def p_divide(p):
-    '''first : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN
+    '''divide : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN
     '''
 
 #Funcion RESTA : Divide los elementos de una lista
 def p_minus(p):
-    '''first : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
+    '''minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
     '''
 
 
@@ -57,6 +57,10 @@ def p_max(p):
 
 #Funcion MIN: Devuelve el valor minimo de una lista
 def p_min(p):
+    '''min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
+    '''
+
+def p_append(p):
     '''min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
     '''
     
