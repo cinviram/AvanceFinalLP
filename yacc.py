@@ -49,7 +49,6 @@ def p_minus(p):
     '''minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN
     '''
 
-
 #Funcion MAX: Devuelve el valor máximo de una lista
 def p_max(p):
     '''max : LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN
