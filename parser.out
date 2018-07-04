@@ -1,16 +1,12 @@
 Created by PLY version 3.10 (http://www.dabeaz.com/ply)
 
-Unused terminals:
-
-    TRUE
-
 Grammar
 
 Rule 0     S' -> atomo
 Rule 1     atomo -> STRING
 Rule 2     atomo -> NUM
 Rule 3     atomo -> ALFNUM
-Rule 4     first -> LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE LPAREN SPACE atomo SPACE atomo SPACE RPAREN RPAREN
+Rule 4     first -> LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN
 Rule 5     rest -> LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN
 Rule 6     cons -> LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN
 Rule 7     plus -> LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN
@@ -22,15 +18,9 @@ Rule 12    min -> LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
 Rule 13    append -> LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN
 Rule 14    lista -> LPAREN RPAREN
 Rule 15    lista -> LPAREN atomo RPAREN
-Rule 16    lista -> LPAREN atomo SPACE atomo RPAREN
-<<<<<<< HEAD
+Rule 16    lista -> LPAREN atomo SPACE atomo LPAREN
 Rule 17    lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN
 Rule 18    lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN
-=======
-Rule 17    lista -> LPAREN atomo SPACE atomo SPACE atomo RPAREN
-Rule 18    lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN
-Rule 19    lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN
->>>>>>> 2363ffe600cc3a208e819d2d86de4bd88de3f6ff
 
 Terminals, with rules where they appear
 
@@ -40,11 +30,7 @@ APPLY                : 4 5 6 7 8 9 10 11 12 13
 CONS                 : 6
 DIVIDE               : 9
 FIRST                : 4
-<<<<<<< HEAD
-LPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18
-=======
-LPAREN               : 4 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18 19
->>>>>>> 2363ffe600cc3a208e819d2d86de4bd88de3f6ff
+LPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 16 17 18
 MAX                  : 11
 MIN                  : 12
 MINUS                : 10
@@ -52,26 +38,20 @@ NUM                  : 2
 PLUS                 : 7
 QUOTE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13
 REST                 : 5
-<<<<<<< HEAD
-RPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18
+RPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 17 18
 SPACE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 13 13 13 16 17 17 18 18 18
-=======
-RPAREN               : 4 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18 19
-SPACE                : 4 4 4 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 13 13 13 16 17 17 18 18 19 19 19
->>>>>>> 2363ffe600cc3a208e819d2d86de4bd88de3f6ff
 STRING               : 1
 TIMES                : 8
-TRUE                 : 
 error                : 
 
 Nonterminals, with rules where they appear
 
 append               : 
-atomo                : 4 4 15 16 16 17 17 17 18 18 19 19 19 0
+atomo                : 15 16 16 17 17 18 18 18 0
 cons                 : 
 divide               : 
 first                : 
-lista                : 5 6 7 8 9 10 11 12 13 13 18 19
+lista                : 4 5 6 7 8 9 10 11 12 13 13 17 18
 max                  : 
 min                  : 
 minus                : 

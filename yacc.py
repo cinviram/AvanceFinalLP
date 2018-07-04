@@ -3,11 +3,11 @@ import lexer  # Import lexer information
 
 tokens = lexer.tokens  #
 
-
-'''def p_error(p):
+''''
+def p_error(p):
     print("Lexical: illegal character '%s' in line '%d' position" % (p.value[0], p.lineno))
-    p.yacc.skip(1)'''
-
+    p.yacc.skip(1)
+'''
 
 def p_atomo(p):
     '''atomo : STRING
@@ -18,7 +18,7 @@ def p_atomo(p):
 
 #Funcion FIRST: devuelve el primer elemento de una lista
 def p_first(p):
-    '''first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE LPAREN SPACE atomo SPACE atomo SPACE RPAREN RPAREN
+    '''first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN
     '''
     pass
 
@@ -32,7 +32,7 @@ def p_rest(p):
 def p_cons(p):
     '''cons : LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN
     '''
-    pass 
+    pass
 
 #Funcion PLUS : Suma los elementos de una lista
 def p_plus(p):
@@ -76,12 +76,11 @@ def p_append(p):
     '''append : LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN
     '''
     pass
-    
+
 def p_lista(p):
     '''lista : LPAREN RPAREN 
              | LPAREN atomo RPAREN
-             | LPAREN atomo SPACE atomo RPAREN
-             | LPAREN atomo SPACE atomo SPACE atomo RPAREN
+             | LPAREN atomo SPACE atomo LPAREN
              | LPAREN atomo SPACE atomo SPACE lista RPAREN
              | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '''
     pass
@@ -92,10 +91,11 @@ print("Ingrese Exit para terminar")
 while True:
     try:
         s = input("Ingrese: ")
-        if s == 'E':
+        if s == 'Exit':
             break
     except EOFError:
             break
 
-    if not s: continue
+    if not s:
+        continue
     resultado = parser.parse(s)
