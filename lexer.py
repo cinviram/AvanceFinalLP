@@ -4,7 +4,7 @@ import ply.lex as lex
 
 #revisar cuales no usamos al final
 tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
-          , 'PLUS', 'MINUS', 'DIVIDE',
+          ,'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
           'SPACE', 'APPLY', 'TRUE')
 
