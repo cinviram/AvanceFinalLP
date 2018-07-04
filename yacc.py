@@ -29,7 +29,21 @@ def p_cons(p):
     '''cons : LPAREN APPLY QUOTE CONS SPACE QUOTE lista RPAREN 
     '''
 
+#Funcion PLUS : Suma los elementos de una lista
+def p_plus(p):
+    '''first : LPAREN APPLY QUOTE PLUS SPACE QUOTE lista RPAREN
+    '''
 
+#Funcion MAX: Devuelve el valor máximo de una lista
+def p_max(p):
+    '''max : LPAREN APPLY QUOTE MAX SPACE QUOTE lista RPAREN
+    '''
+
+#Funcion MIN: Devuelve el valor minimo de una lista
+def p_min(p):
+    '''min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
+    '''
+    
 def p_lista(p):
     '''lista : LPAREN RPAREN 
              | LPAREN atomo RPAREN
