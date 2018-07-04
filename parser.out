@@ -22,7 +22,7 @@ Rule 12    min -> LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN
 Rule 13    append -> LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN
 Rule 14    lista -> LPAREN RPAREN
 Rule 15    lista -> LPAREN atomo RPAREN
-Rule 16    lista -> LPAREN atomo SPACE atomo LPAREN
+Rule 16    lista -> LPAREN atomo SPACE atomo RPAREN
 Rule 17    lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN
 Rule 18    lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN
 
@@ -34,7 +34,7 @@ APPLY                : 4 5 6 7 8 9 10 11 12 13
 CONS                 : 6
 DIVIDE               : 9
 FIRST                : 4
-LPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 16 17 18
+LPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18
 MAX                  : 11
 MIN                  : 12
 MINUS                : 10
@@ -42,7 +42,7 @@ NUM                  : 2
 PLUS                 : 7
 QUOTE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13
 REST                 : 5
-RPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 17 18
+RPAREN               : 4 5 6 7 8 9 10 11 12 13 13 14 15 16 17 18
 SPACE                : 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 13 13 13 16 17 17 18 18 18
 STRING               : 1
 TIMES                : 8
