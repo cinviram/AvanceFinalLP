@@ -14,15 +14,21 @@ def p_atomo(p):
              | NUM
              | ALFNUM
     '''
-
-
-
-
-def p_apply(p):
+#Funcion FIRST: devuelve el primer elemento de una lista
+def p_first(p):
+    '''first : LPAREN APPLY QUOTE FIRST SPACE QUOTE lista RPAREN 
     '''
 
-
+#Funcion REST: devuelve el ultimo elemento de una lista
+def p_rest(p):
+    '''rest : LPAREN APPLY QUOTE REST SPACE QUOTE lista RPAREN 
     '''
+
+#Funcion CONS: ingresa un atomo a una lista
+def p_cons(p):
+    '''cons : LPAREN APPLY QUOTE CONS SPACE QUOTE lista RPAREN 
+    '''
+
 
 def p_lista(p):
     '''lista : LPAREN RPAREN 
