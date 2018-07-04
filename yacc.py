@@ -16,22 +16,22 @@ def p_atomo(p):
     '''
 #Funcion FIRST: devuelve el primer elemento de una lista
 def p_first(p):
-    '''first : LPAREN APPLY QUOTE FIRST SPACE QUOTE lista RPAREN
+    '''first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN
     '''
 
 #Funcion REST: devuelve el ultimo elemento de una lista
 def p_rest(p):
-    '''rest : LPAREN APPLY QUOTE REST SPACE QUOTE lista RPAREN
+    '''rest : LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN
     '''
 
 #Funcion CONS: ingresa un atomo a una lista
 def p_cons(p):
-    '''cons : LPAREN APPLY QUOTE CONS SPACE QUOTE lista RPAREN
+    '''cons : LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN
     '''
 
 #Funcion PLUS : Suma los elementos de una lista
 def p_plus(p):
-    '''first : LPAREN APPLY QUOTE PLUS SPACE QUOTE lista RPAREN
+    '''first : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN
     '''
 
 #Funcion TIMES : Multiplica los elementos de una lista
