@@ -80,6 +80,7 @@ def p_append(p):
 def p_lista(p):
     '''lista : LPAREN RPAREN 
              | LPAREN atomo RPAREN
+             | LPAREN atomo SPACE atomo LPAREN
              | LPAREN atomo SPACE atomo SPACE lista RPAREN
              | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '''
     pass
