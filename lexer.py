@@ -3,13 +3,9 @@ import ply.lex as lex
 #Nombre de lista de Token
 
 #revisar cuales no usamos al final
-<<<<<<< HEAD
+
 tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
           ,'PLUS', 'MINUS', 'DIVIDE',
-=======
-tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
-          'PLUS', 'MINUS', 'DIVIDE',
->>>>>>> 4836947eab7d6edd86aa34b926cefff4082763b4
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
           'SPACE', 'APPLY')
 
