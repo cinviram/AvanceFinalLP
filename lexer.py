@@ -4,9 +4,9 @@ import ply.lex as lex
 
 #revisar cuales no usamos al final
 tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN',
-          'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'REM', 'DIVIDE',
-          'TIMES', 'SQRT','APPEND','CONS', 'FIRST', 'REST', 'LISTP',
-          'SPACE')
+          'NIL', 'T', 'NIL', 'TEXT', 'PLUS', 'MINUS', 'DIVIDE',
+          'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
+          'LISTP', 'SPACE')
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
@@ -22,7 +22,7 @@ t_T = r'\#t'
 t_NIL = r'\#f'
 
 #operadores
-t_REM = r'-'
+t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_PLUS = r'\+'
