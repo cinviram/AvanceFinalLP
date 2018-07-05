@@ -3,34 +3,13 @@ import ply.lex as lex
 #Nombre de lista de Token
 
 #revisar cuales no usamos al final
-
-tokens = ['STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
-          ,'PLUS', 'MINUS', 'DIVIDE',
+tokens = ['QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
+          , 'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
           'SPACE', 'APPLY']
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
-
-#simbolos
-t_LPAREN = r'\('
-t_RPAREN = r'\)'
-#t_QUOTE = r'\'\'' #apostrofe
-t_SPACE = r'\s'
-
-
-
-#operadores
-t_MINUS = r'\'-\s\''
-t_TIMES = r'\'*\''
-t_DIVIDE = r'\'/ \''
-t_PLUS = r'\'+ \''
-
-#tipos atomo
-t_ALFNUM = r'[\w]+'
-t_STRING = r'[a-zA-Z]'
-t_NUM = r' [+-]?\d+(\.\d+|[eE][+-]?\d+)?'
-
 #palabras reservadas
 t_MAX = r'MAX'
 t_MIN = r'MIN'
@@ -41,14 +20,37 @@ t_REST = r'REST'
 t_APPLY = r'APPLY'
 
 
+#simbolos
+t_LPAREN = r'\('
+t_RPAREN = r'\)'
+t_QUOTE = r'\'' #apostrofe
+t_SPACE = r'\s'
+
+
+
+#operadores
+t_MINUS = r'-'
+t_TIMES = r'\*'
+t_DIVIDE = r'/'
+t_PLUS = r'\+'
+
+#tipos atomo
+t_ALFNUM = r'[\w]+'
+t_STRING = r'[a-zA-Z]+'
+t_NUM = r' [+-]?\d+(\.\d+|[eE][+-]?\d+)?'
+
+
+
 #IGNORANDO CARACTERES ESPACIOS Y TABS
+t_ignore = '\t'
 
 #ERROR
 def t_error(t):
     print("Lexical: illegal character '%s' in line '%d' position" % (t.value[0], t.lineno))
     t.lexer.skip(1)
 
-lex.lex()
+
+analizador = lex.lex()
 
 
 # MAIN
