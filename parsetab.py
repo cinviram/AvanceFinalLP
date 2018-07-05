@@ -5,11 +5,7 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'QUOTE STRING NUM ALFNUM LPAREN RPAREN PLUS MINUS DIVIDE TIMES MAX MIN APPEND CONS FIRST REST SPACE APPLY TRUEatomo : STRING\n             | NUM\n             | ALFNUM\n    first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN\n    rest : LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN\n    cons : LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN\n    plus : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN\n    times : LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN\n    divide : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN\n    minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN\n    max : LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN\n    min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN\n    append : LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN\n    lista : LPAREN RPAREN \n             | LPAREN atomo RPAREN\n             | LPAREN atomo SPACE atomo RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '
-_lr_signature = 'QUOTE STRING NUM ALFNUM LPAREN RPAREN PLUS MINUS DIVIDE TIMES MAX MIN APPEND CONS FIRST REST SPACE APPLY TRUEatomo : STRING\n             | NUM\n             | ALFNUM\n    first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE LPAREN SPACE atomo SPACE atomo SPACE RPAREN RPAREN\n    rest : LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN\n    cons : LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN\n    plus : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN\n    times : LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN\n    divide : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN\n    minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN\n    max : LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN\n    min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN\n    append : LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN\n    lista : LPAREN RPAREN \n             | LPAREN atomo RPAREN\n             | LPAREN atomo SPACE atomo RPAREN\n             | LPAREN atomo SPACE atomo SPACE atomo RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '
-
-_lr_signature = 'QUOTE STRING NUM ALFNUM LPAREN RPAREN PLUS MINUS DIVIDE TIMES MAX MIN APPEND CONS FIRST REST SPACE APPLYatomo : STRING\n             | NUM\n             | ALFNUM\n    first : LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN\n    rest : LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN\n    cons : LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN\n    plus : LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN\n    times : LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN\n    divide : LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN\n    minus : LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN\n    max : LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN\n    min : LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN\n    append : LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN\n    lista : LPAREN RPAREN \n             | LPAREN atomo RPAREN\n             | LPAREN atomo SPACE atomo LPAREN\n             | LPAREN atomo SPACE atomo SPACE lista RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN '
-
+_lr_signature = 'STRING NUM ALFNUM LPAREN RPAREN PLUS MINUS DIVIDE TIMES MAX MIN APPEND CONS FIRST REST SPACE APPLYatomo : STRING\n             | NUM\n             | ALFNUM\n    lista : LPAREN RPAREN \n             | LPAREN atomo RPAREN\n             | LPAREN atomo SPACE atomo RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista RPAREN\n             | LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN first : LPAREN APPLY SPACE FIRST lista RPAREN\n    rest : LPAREN APPLY SPACE REST lista RPAREN\n    cons : LPAREN APPLY SPACE CONS lista RPAREN\n    plus : LPAREN APPLY SPACE PLUS lista RPAREN\n    times : LPAREN APPLY SPACE TIMES lista RPARENdivide : LPAREN APPLY SPACE DIVIDE lista RPARENminus : LPAREN APPLY SPACE MINUS lista RPARENmax : LPAREN APPLY SPACE MAX lista RPARENmin : LPAREN APPLY SPACE MIN lista RPARENappend : LPAREN APPLY SPACE APPEND LPAREN lista SPACE lista RPAREN RPAREN'
     
 _lr_action_items = {'STRING':([0,],[2,]),'NUM':([0,],[3,]),'ALFNUM':([0,],[4,]),'$end':([1,2,3,4,],[0,-1,-2,-3,]),}
 
@@ -33,31 +29,19 @@ _lr_productions = [
   ('atomo -> STRING','atomo',1,'p_atomo','yacc.py',13),
   ('atomo -> NUM','atomo',1,'p_atomo','yacc.py',14),
   ('atomo -> ALFNUM','atomo',1,'p_atomo','yacc.py',15),
-  ('first -> LPAREN APPLY SPACE QUOTE FIRST SPACE QUOTE lista RPAREN','first',9,'p_first','yacc.py',21),
-  ('rest -> LPAREN APPLY SPACE QUOTE REST SPACE QUOTE lista RPAREN','rest',9,'p_rest','yacc.py',27),
-  ('cons -> LPAREN APPLY SPACE QUOTE CONS SPACE QUOTE lista RPAREN','cons',9,'p_cons','yacc.py',33),
-  ('plus -> LPAREN APPLY SPACE QUOTE PLUS SPACE QUOTE lista RPAREN','plus',9,'p_plus','yacc.py',39),
-  ('times -> LPAREN APPLY SPACE QUOTE TIMES SPACE QUOTE lista RPAREN','times',9,'p_times','yacc.py',45),
-  ('divide -> LPAREN APPLY SPACE QUOTE DIVIDE SPACE QUOTE lista RPAREN','divide',9,'p_divide','yacc.py',51),
-  ('minus -> LPAREN APPLY SPACE QUOTE MINUS SPACE QUOTE lista RPAREN','minus',9,'p_minus','yacc.py',57),
-  ('max -> LPAREN APPLY SPACE QUOTE MAX SPACE QUOTE lista RPAREN','max',9,'p_max','yacc.py',64),
-  ('min -> LPAREN APPLY QUOTE MIN SPACE QUOTE lista RPAREN','min',8,'p_min','yacc.py',70),
-  ('append -> LPAREN APPLY SPACE QUOTE APPEND SPACE QUOTE LPAREN lista SPACE lista RPAREN RPAREN','append',13,'p_append','yacc.py',76),
-  ('lista -> LPAREN RPAREN','lista',2,'p_lista','yacc.py',81),
-  ('lista -> LPAREN atomo RPAREN','lista',3,'p_lista','yacc.py',82),
-
-  ('lista -> LPAREN atomo SPACE atomo RPAREN','lista',5,'p_lista','yacc.py',83),
-
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN','lista',7,'p_lista','yacc.py',84),
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN','lista',9,'p_lista','yacc.py',85),
-
-  ('lista -> LPAREN atomo SPACE atomo SPACE atomo RPAREN','lista',7,'p_lista','yacc.py',84),
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN','lista',7,'p_lista','yacc.py',85),
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN','lista',9,'p_lista','yacc.py',86),
-
-
-  ('lista -> LPAREN atomo SPACE atomo LPAREN','lista',5,'p_lista','yacc.py',83),
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN','lista',7,'p_lista','yacc.py',84),
-  ('lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN','lista',9,'p_lista','yacc.py',85),
-
+  ('lista -> LPAREN RPAREN','lista',2,'p_lista','yacc.py',20),
+  ('lista -> LPAREN atomo RPAREN','lista',3,'p_lista','yacc.py',21),
+  ('lista -> LPAREN atomo SPACE atomo RPAREN','lista',5,'p_lista','yacc.py',22),
+  ('lista -> LPAREN atomo SPACE atomo SPACE lista RPAREN','lista',7,'p_lista','yacc.py',23),
+  ('lista -> LPAREN atomo SPACE atomo SPACE lista SPACE atomo RPAREN','lista',9,'p_lista','yacc.py',24),
+  ('first -> LPAREN APPLY SPACE FIRST lista RPAREN','first',6,'p_first','yacc.py',29),
+  ('rest -> LPAREN APPLY SPACE REST lista RPAREN','rest',6,'p_rest','yacc.py',35),
+  ('cons -> LPAREN APPLY SPACE CONS lista RPAREN','cons',6,'p_cons','yacc.py',41),
+  ('plus -> LPAREN APPLY SPACE PLUS lista RPAREN','plus',6,'p_plus','yacc.py',47),
+  ('times -> LPAREN APPLY SPACE TIMES lista RPAREN','times',6,'p_times','yacc.py',53),
+  ('divide -> LPAREN APPLY SPACE DIVIDE lista RPAREN','divide',6,'p_divide','yacc.py',58),
+  ('minus -> LPAREN APPLY SPACE MINUS lista RPAREN','minus',6,'p_minus','yacc.py',63),
+  ('max -> LPAREN APPLY SPACE MAX lista RPAREN','max',6,'p_max','yacc.py',69),
+  ('min -> LPAREN APPLY SPACE MIN lista RPAREN','min',6,'p_min','yacc.py',74),
+  ('append -> LPAREN APPLY SPACE APPEND LPAREN lista SPACE lista RPAREN RPAREN','append',10,'p_append','yacc.py',79),
 ]

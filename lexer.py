@@ -4,10 +4,10 @@ import ply.lex as lex
 
 #revisar cuales no usamos al final
 
-tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
+tokens = ['STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
           ,'PLUS', 'MINUS', 'DIVIDE',
           'TIMES', 'MAX','MIN','APPEND','CONS', 'FIRST', 'REST',
-          'SPACE', 'APPLY')
+          'SPACE', 'APPLY']
 
 
 #EXPRESIONES REGULARES REGLAS PARA SIMPLE
@@ -15,16 +15,16 @@ tokens = ('QUOTE', 'STRING','NUM','ALFNUM','LPAREN', 'RPAREN'
 #simbolos
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
-t_QUOTE = r'\'' #apostrofe
-t_SPACE = r'\n'
+#t_QUOTE = r'\'\'' #apostrofe
+t_SPACE = r'\s'
 
 
 
 #operadores
-t_MINUS = r'-'
-t_TIMES = r'\*'
-t_DIVIDE = r'/'
-t_PLUS = r'\+'
+t_MINUS = r'\'-\s\''
+t_TIMES = r'\'*\''
+t_DIVIDE = r'\'/ \''
+t_PLUS = r'\'+ \''
 
 #tipos atomo
 t_ALFNUM = r'[\w]+'
@@ -52,7 +52,7 @@ lex.lex()
 
 
 # MAIN
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     print("Ingrese una palabra reservada , un operador o una variable de LISP : ")
     cadena=input()
     lex.input(cadena)
@@ -63,4 +63,4 @@ if __name__ == "__main__":
             print("¡No es un token válido!")
             break
         print("Token valido de tipo : " + token.type)
-        break
+        break'''
